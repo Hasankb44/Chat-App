@@ -2,16 +2,6 @@
 
 This project is a chat application built using JavaFX and a RESTful API. JavaFX is used to create the user interface, while the RESTful API is used to communicate with the server.
 
-## Table of Contents
-
-- [Features](#features)
-- [Requirements](#requirements)
-- [Setup](#setup)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Features
 
 - Real-time chat between users
