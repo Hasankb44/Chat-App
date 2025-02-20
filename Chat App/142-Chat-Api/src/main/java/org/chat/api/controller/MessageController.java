@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MessageController {
 
-    void sendMessage(Message message); // POST
+    Message sendMessage(Message message); // POST
 
     List<Message> getAllMessage(); // GET
 

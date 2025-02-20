@@ -1,5 +1,6 @@
 package org.chat.api.service.impl;
 
+import org.chat.api.Exception.MessageNotFoundException;
 import org.chat.api.model.Message;
 import org.chat.api.repositories.MessageRepository;
 import org.chat.api.service.MessageService;
@@ -25,6 +26,9 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void deleteMessage(Integer id) {
+       if (messageRepository.existsById(id)==false) {
+           throw new MessageNotFoundException("Message not found");
+       }
         messageRepository.deleteById(id);
     }
 }

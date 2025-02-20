@@ -2,28 +2,36 @@ package org.chat.api.controller.impl;
 
 import org.chat.api.controller.MessageController;
 import org.chat.api.model.Message;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.chat.api.service.MessageService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@Controller
+@RestController
 public class MessageControllerImpl implements MessageController {
-    @Autowired
-    private MessageController messageController;
 
+    private MessageService messageService;
+public MessageControllerImpl(MessageService messageService) {
+    this.messageService = messageService;
+}
+  /*hey dear developer if you want l can swich return type to MessageDto for security reasons
+   if you don't want no problem
+   *
+   */
     @PostMapping(path = "/send")
-    public void sendMessage(@RequestBody Message message) {
-        messageController.sendMessage(message);
+
+    public Message sendMessage(@RequestBody Message message) {
+        messageService.sendMessage(message);
+
+        return message;
     } // POST
 
     @GetMapping(path = "/getAll")
     public List<Message> getAllMessage() {
-        return messageController.getAllMessage();
+        return messageService.getAllMessage();
     }
 
     @DeleteMapping(path = "/delete/{id}")
     public void deleteMessage(@PathVariable(name = "id") Integer id) {
-      messageController.deleteMessage(id);
+      messageService.deleteMessage(id);
     } // DELETE
 }
