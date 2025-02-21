@@ -21,7 +21,7 @@ public class Message {
     Integer id;
 
     @Column(name = "message")
-    String message = null;
+    String message;
 
     @Column(name = "author")
     String author;
